@@ -1,0 +1,112 @@
+<div class="container_dashboard">
+    <div class="cards">
+        <div class="card">
+            <div class="card-header">
+                <h3>Jogadores online</h3>
+            </div>
+            <div class="card-body">
+                <p>0</p>
+            </div>
+            <div class="card-footer">
+                <p><i class="fa-solid fa-chevron-left"></i> Ver tudo</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <h3>Status do servidor</h3>
+            </div>
+            <div class="card-body">
+                <!-- <span>
+                    <div class="online"></div>
+                    Online
+                </span> -->
+                <span>
+                    <div class="offline"></div>
+                    Offline
+                </span>
+            </div>
+            <div class="card-footer">
+                <p><i class="fa-solid fa-chevron-left"></i> Ver tudo</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <h3>Tickets pendentes </h3>
+            </div>
+            <div class="card-body">
+                <p>0</p>
+            </div>
+            <div class="card-footer">
+                <p><i class="fa-solid fa-chevron-left"></i> Ver tudo</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <h3>Allowlist pendentes</h3>
+            </div>
+            <div class="card-body">
+                <p>0</p>
+            </div>
+            <div class="card-footer">
+                <p><i class="fa-solid fa-chevron-left"></i> Ver tudo</p>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="painel_dashboard">
+        <div class="dados">
+            <div class="chars">
+                <span>Grafico</span>
+                <div class="content_chars">
+                    <span>Útilmos banimentos em 24h</span>
+                    <div class="back">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </div>
+                    <div class="next">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="logs">
+                <div class="logs-header">
+                    <span>Últimas logs</span>
+                    <span class="ver_todos">Ver todos <i class="fa-solid fa-chevron-right"></i></span>
+
+                </div>
+
+                <div class="content_logs">
+
+                </div>
+            </div>
+        </div>
+        <div class="jogadores_online">
+            <span>Jogadores online</span>
+
+            <div class="content_jogadores_online">
+                <p-table  [value]="products" > 
+                    <ng-template #header>
+                        <tr>
+                            <th>Id</th>
+                            <th>Nick</th>
+                            <th>Profissão</th>
+                            <th>Tempo online</th>
+                            <th>Ação</th>
+                        </tr>
+                    </ng-template>
+                    <ng-template #body let-product>
+                        <tr>
+                            <td>{{ product.id }}</td>
+                            <td>{{ product.nick }}</td>
+                            <td>{{ product.profissao }}</td>
+                            <td>{{ product.tempoOnline }}</td>
+                            <td class="actions">
+                                <button class="btn btn-danger">Banir</button>
+                                <button class="btn btn-warning">Kickar</button> </td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+            </div>
+        </div>
+    </div>
+</div>

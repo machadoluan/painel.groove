@@ -1,0 +1,166 @@
+<div class="container_dashboard">
+  <div class="cards">
+    <div class="card">
+      <div class="card-header">
+        <h3>Jogadores online</h3>
+      </div>
+      <div class="card-body">
+        <p>{{ jogadoresOnline }} / {{ capacidadeMaxima }}</p>
+      </div>
+      <div class="card-footer">
+        <p><i class="fa-solid fa-chevron-left"></i> Ver tudo</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <h3>Status do servidor</h3>
+      </div>
+      <div class="card-body">
+        <span *ngIf="serverOnline">
+          <div class="online"></div>
+          Online
+        </span>
+        <span *ngIf="!serverOnline">
+          <div class="offline"></div>
+          Offline
+        </span>
+      </div>
+      <div class="card-footer">
+        <p><i class="fa-solid fa-chevron-left"></i> Ver tudo</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <h3>Tickets pendentes </h3>
+      </div>
+      <div class="card-body">
+        <p>0</p>
+      </div>
+      <div class="card-footer">
+        <p><i class="fa-solid fa-chevron-left"></i> Ver tudo</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <h3>Allowlist pendentes</h3>
+      </div>
+      <div class="card-body">
+        <p>0</p>
+      </div>
+      <div class="card-footer">
+        <p><i class="fa-solid fa-chevron-left"></i> Ver tudo</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <h3>Acessos por IP fixo</h3>
+      </div>
+      <div class="card-body">
+        <p>{{ metricas.acessosPorIPFixo }}</p>
+      </div>
+      <div class="card-footer">
+        <p><i class="fa-solid fa-chevron-left"></i> Ver tudo</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <h3>Discords vinculados</h3>
+      </div>
+      <div class="card-body">
+        <p>{{ metricas.discordsVinculados }}</p>
+      </div>
+      <div class="card-footer">
+        <p><i class="fa-solid fa-chevron-left"></i> Ver tudo</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <h3>Acessos totais ao site</h3>
+      </div>
+      <div class="card-body">
+        <p>{{ metricas.acessosTotais }}</p>
+      </div>
+      <div class="card-footer">
+        <p><i class="fa-solid fa-chevron-left"></i> Ver tudo</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <h3>Cliques: Entrar com Discord</h3>
+      </div>
+      <div class="card-body">
+        <p>{{ metricas.cliquesDiscord }}</p>
+      </div>
+      <div class="card-footer">
+        <p><i class="fa-solid fa-chevron-left"></i> Ver tudo</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <h3>Cliques: Lista de espera</h3>
+      </div>
+      <div class="card-body">
+        <p>{{ metricas.cliquesListaEspera }}</p>
+      </div>
+      <div class="card-footer">
+        <p><i class="fa-solid fa-chevron-left"></i> Ver tudo</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <h3>Cliques: Fechar (tela lista espera)</h3>
+      </div>
+      <div class="card-body">
+        <p>{{ metricas.cliquesFecharTelaLista }}</p>
+      </div>
+      <div class="card-footer">
+        <p><i class="fa-solid fa-chevron-left"></i> Ver tudo</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <h3>Cliques: Compra VIP Diamante</h3>
+      </div>
+      <div class="card-body">
+        <p>{{ metricas.cliquesCompraVipDiamante }}</p>
+      </div>
+      <div class="card-footer">
+        <p><i class="fa-solid fa-chevron-left"></i> Ver tudo</p>
+      </div>
+    </div>
+
+
+    <div class="card">
+      <div class="card-header">
+        <h3>Cliques em fazer Allowlist</h3>
+      </div>
+      <div class="card-body">
+        <p>{{ metricas.fazerAllowlist }}</p>
+      </div>
+      <div class="card-footer">
+        <p><i class="fa-solid fa-chevron-left"></i> Ver tudo</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <h3>Cliques em fechar Allowlist</h3>
+      </div>
+      <div class="card-body">
+        <p>{{ metricas.cancelarAllowlist }}</p>
+      </div>
+      <div class="card-footer">
+        <p><i class="fa-solid fa-chevron-left"></i> Ver tudo</p>
+      </div>
+    </div>
+  </div>
+
+
+
+</div>

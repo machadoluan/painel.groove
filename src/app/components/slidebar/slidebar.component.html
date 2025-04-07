@@ -1,0 +1,84 @@
+<div class="container-slide" [class.open]="isOpen">
+    <div class="first">
+        <div class="logo">
+            <img src="/img/logo.png" alt="">
+        </div>
+        <div class="links">
+            <span class="link" [ngClass]="{'active': isActive('/dashboard')}" routerLink="/dashboard">
+                <div class="icon">
+                    <i class="fa-solid fa-chart-line"></i>
+                </div>
+                <span>Dashboard</span>
+            </span>
+
+            <span class="link" [ngClass]="{'active': isActive('/trip')}" routerLink="/trip">
+                <div class="icon">
+                    <i class="fa-solid fa-users"></i>
+                </div>
+                <span>Jogadores</span>
+            </span>
+
+            <span class="link" [ngClass]="{'active': isActive('/allowlist')}" routerLink="/allowlist">
+                <div class="icon">
+                    <i class="fa-solid fa-user-check"></i>
+                </div>
+                <span>Allowlist</span>
+            </span>
+
+            <span class="link" [ngClass]="{'active': isActive('/bans')}" routerLink="/bans">
+                <div class="icon">
+                    <i class="fa-solid fa-gavel"></i>
+                </div>
+                <span>Banimentos</span>
+            </span>
+
+            <span class="link" [ngClass]="{'active': isActive('/kicks')}" routerLink="/kicks">
+                <div class="icon">
+                    <i class="fa-solid fa-shoe-prints"></i>
+                </div>
+                <span>Kicks</span>
+            </span>
+
+            <span class="link" [ngClass]="{'active': isActive('/tickets')}" routerLink="/tickets">
+                <div class="icon">
+                    <i class="fa-solid fa-ticket-alt"></i>
+                </div>
+                <span>Tickets</span>
+            </span>
+
+            <span class="link" [ngClass]="{'active': isActive('/admins')}" routerLink="/admins">
+                <div class="icon">
+                    <i class="fa-solid fa-user-shield"></i>
+                </div>
+                <span>Admins</span>
+            </span>
+
+            <span class="link" [ngClass]="{'active': isActive('/logs')}" routerLink="/logs">
+                <div class="icon">
+                    <i class="fa-solid fa-clipboard-list"></i>
+                </div>
+                <span>Logs</span>
+            </span>
+
+            <span class="link" [ngClass]="{'active': isActive('/estatisticas')}" routerLink="/estatisticas">
+                <div class="icon">
+                    <i class="fa-solid fa-clipboard-list"></i>
+                </div>
+                <span>Estatísticas site</span>
+            </span>
+        </div>
+
+    </div>
+
+
+    <div class="account" >
+        <div class="avatar">
+            <!-- <img [src]="user.photo" alt=""> -->
+            <img src="https://media.discordapp.net/attachments/1155217800760139828/1340017067071639634/john_wick.png?ex=67d9b225&is=67d860a5&hm=bb06239b7ea76afdc8c7c53c8496db8dce800e7e1547c98761f7246b6c92eb02&=&format=webp&quality=lossless" alt="">
+        </div>
+        <div class="info">
+            <!-- <span class="name">{{user.name}}</span> -->
+            <span class="name">Luan Machado</span>
+        </div>
+    </div>
+</div>
