@@ -1,0 +1,82 @@
+<div class="container_novidades">
+    <div class="optionss">
+        <button>Criar novidade</button>
+    </div>
+
+    <div class="novidades">
+        <div class="item">
+            <div class="dados">
+                <img src="https://cdn-imgix.headout.com/tour/7064/TOUR-IMAGE/b2c74200-8da7-439a-95b6-9cad1aa18742-4445-dubai-img-worlds-of-adventure-tickets-02.jpeg?auto=format&w=780&h=384&q=90&fit=crop&ar=16%3A10"
+                    alt="">
+                <span>Quem está lendo isso gosta muito de queimar a beiradinha.</span>
+            </div>
+            <div class="options">
+                <div class="container-status">
+                    <p-toggleswitch >
+                        <ng-template #handle let-checked="checked">
+                            <i [ngClass]="['!text-xs', 'pi', checked ? 'pi-check' : 'pi-times']"></i>
+                        </ng-template>
+                    </p-toggleswitch>
+                    <span class="status disabilitado">Desabilitado</span>
+                </div>
+                <div class="btns">
+                    <div class="edit">
+                        <i class="fa-solid fa-pen-to-square"></i>
+                    </div>
+                    <div class="delete">
+                        <i class="fa-solid fa-trash"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="dados">
+                <img src="https://s2-cbn.glbimg.com/IKq-zEoxhK7-jkhunj4sBKcxamM=/0x0:912x569/888x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_d975fad146a14bbfad9e763717b09688/internal_photos/bs/2025/M/H/8pU5SdTTO4fhTdVfgerQ/gta.png"
+                    alt="">
+                <span>Coe, então você gostou de ler né? Ta quueimando novamente...</span>
+            </div>
+            <div class="options">
+                <div class="container-status">
+                    <p-toggleswitch >
+                        <ng-template #handle let-checked="checked">
+                            <i [ngClass]="['!text-xs', 'pi', checked ? 'pi-check' : 'pi-times']"></i>
+                        </ng-template>
+                    </p-toggleswitch>
+                    <span class="status habilitado">Habilitado</span>
+                </div>
+                <div class="btns">
+                    <div class="edit">
+                        <i class="fa-solid fa-pen-to-square"></i>
+                    </div>
+                    <div class="delete">
+                        <i class="fa-solid fa-trash"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<p-dialog [(visible)]="visibleCriar" [modal]="true" [draggable]="false" [resizable]="false" header="Criar novidade"
+    styleClass="ticket-dialog">
+    <div class="create_suporte">
+        <form [formGroup]="dados">
+            <div class="form-group">
+                <label for="assunto">Descrição</label>
+                <input type="text" pInputText placeholder="Deixe um assunto" formControlName="subject" />
+            </div>
+            <div class="form-group" >
+                <label for="assunto">Link do video</label>
+                <input type="text" pInputText placeholder="Link do video" formControlName="subject" />
+            </div>
+           
+        </form>
+
+
+        <button class="btn-style-global" [disabled]="!dados.valid">
+            <i class="fa-solid fa-paper-plane"></i>
+            Criar
+        </button>
+
+    </div>
+</p-dialog>
