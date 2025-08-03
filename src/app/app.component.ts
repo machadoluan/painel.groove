@@ -3,10 +3,12 @@ import { Router, RouterOutlet } from '@angular/router';
 import { SlidebarComponent } from './components/slidebar/slidebar.component';
 import { HeaderComponent } from './components/header/header.component';
 import { CommonModule } from '@angular/common';
+import { ToastModule } from 'primeng/toast';
+
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, HeaderComponent, SlidebarComponent, CommonModule],
+  imports: [RouterOutlet, HeaderComponent, SlidebarComponent, CommonModule, ToastModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
+import { ToastrService } from '../../service/toastr.service';
 
 @Component({
   selector: 'app-slidebar',
@@ -14,7 +15,7 @@ export class SlidebarComponent implements OnInit {
 
   user: any;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, ) { }
 
 
   isActive(route: string): boolean {

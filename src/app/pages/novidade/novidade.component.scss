@@ -12,6 +12,7 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            color: #292929;
         }
     }
 
@@ -36,7 +37,8 @@
 
                 img {
                     width: 100px;
-                    height: auto;
+                    height: 60px;
+                    object-fit: cover;
                     border-radius: 5px;
                 }
 
@@ -44,26 +46,28 @@
                     font-size: 14px;
                 }
             }
-            .container-status{
+
+            .container-status {
                 display: flex;
                 gap: 1rem;
             }
 
             .status {
                 width: 100px;
-                text-align: center;
+                text-align: start;
                 font-size: 12px;
                 padding: 5px 7px;
                 border-radius: 5px;
 
-                font-weight: bold;
+
+                
 
                 &.habilitado {
                     color: var(--primary);
                 }
 
                 &.disabilitado {
-                    color: rgb(255, 255, 255);
+                    color: #a1a1aa;
                 }
             }
 
@@ -85,6 +89,7 @@
                     display: grid;
                     place-content: center;
                     border-radius: 50%;
+                    color: var(--primary);
                 }
             }
         }
@@ -97,7 +102,7 @@
 ::ng-deep .ticket-dialog {
     background-color: rgba($color: #292929, $alpha: 1.0) !important;
 
-    width: 20%;
+    width: 30%;
 
     @media (max-width: 1200px) {
         width: 50% !important;
@@ -121,14 +126,14 @@
         width: 100%;
         flex-direction: column;
         align-items: flex-end;
-        gap: 1.5rem;
+        gap: 2rem;
         position: relative;
 
         form {
             width: 100%;
             display: flex;
             flex-direction: column;
-            gap: 1rem;
+            gap: 2rem;
 
             .dados {
                 width: 100%;
@@ -176,6 +181,54 @@
 
         }
 
+        .file_photo {
+            width: 100%;
+            height: 150px;
+
+            input[type="file"] {
+                display: none;
+                /* Esconde o input padrão */
+            }
+
+            input[type="file"]:disabled+label {
+                background-color: grey;
+                cursor: not-allowed;
+            }
+
+
+            label {
+                width: 100%;
+                background-color: var(--primary);
+                /* Cor de fundo */
+                color: white;
+                /* Cor do texto */
+                padding: 5px;
+                /* Espaçamento interno */
+                border-radius: 5px;
+                /* Bordas arredondadas */
+                cursor: pointer;
+                /* Cursor de ponteiro */
+                text-align: center;
+                font-size: 14px;
+
+                &.disabled {
+                    background-color: rgba($color: #EF903C, $alpha: 0.5) !important;
+                    cursor: not-allowed;
+                }
+            }
+        }
+
+        .btns {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+
+            span {
+                font-size: 14px;
+
+            }
+        }
+
         button {
             padding: .5rem 2rem;
             background-color: var(--primary);
@@ -188,7 +241,7 @@
             cursor: pointer;
             justify-content: center;
 
-           
+
 
             i {
                 color: var(--secundary);
@@ -215,4 +268,109 @@
 ::ng-deep .p-select-overlay,
 .p-datepicker-panel {
     background-color: rgba($color: #292929, $alpha: 1.0) !important;
+}
+
+::ng-deep .p-toggleswitch.p-toggleswitch-checked .p-toggleswitch-slider {
+    background-color: var(--primary) !important;
+}
+
+::ng-deep .p-toggleswitch-slider {
+    background-color: transparent !important;
+    border: 1px solid var(--primary) !important;
+}
+
+
+::ng-deep .pi {
+    display: none !important;
+}
+
+
+.file-add {
+    width: 100%;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: start;
+    gap: 1rem;
+    margin: 10px;
+    flex-grow: 1;
+
+    img {
+        height: 100px;
+        width: 100px;
+        object-fit: cover;
+        border-radius: 8px;
+        cursor: pointer;
+    }
+}
+
+.item {
+    position: relative;
+}
+
+.item:hover .excluir {
+    display: grid;
+}
+
+
+.excluir {
+    display: none;
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    width: 20px;
+    height: 20px;
+    place-content: center;
+    background-color: #A0A0A0;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 9999;
+}
+
+.full-screen-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    /* Fundo preto translúcido */
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.full-screen-image img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 5px;
+}
+
+
+.background_criando {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 9999;
+
+    .criando {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: rgba($color: #EF903C, $alpha: 0.5);
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+        color: white;
+        font-weight: bold;
+        z-index: 99999;
+    }
 }
