@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, RouterOutlet } from '@angular/router';
+import { ActivatedRoute, Router, RouterOutlet } from '@angular/router';
 import { SlidebarComponent } from './components/slidebar/slidebar.component';
 import { HeaderComponent } from './components/header/header.component';
 import { CommonModule } from '@angular/common';
@@ -20,12 +20,22 @@ export class AppComponent implements OnInit {
   excludedRoutes = ['/login'];
 
   constructor(
-    public router: Router
+    public router: Router,
+    private route: ActivatedRoute
   ) { }
 
 
   ngOnInit(): void {
     this.checkScreenWidth();
+    this.route.queryParams.subscribe(params => {
+      const token = params['token'];
+      if (token) {
+        localStorage.setItem('token', token)
+        this.router.navigate(['/dashboard']).then(() => {
+          window.location.reload();
+        });
+      }
+    })
   }
 
   checkScreenWidth() {

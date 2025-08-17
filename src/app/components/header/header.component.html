@@ -2,7 +2,27 @@
     <div class="title-btn">
         <span>{{title}}</span>
     </div>
-    <i class="fa-solid fa-right-from-bracket" (click)="logout($event)"></i>
+
+    <div class="user">
+        <span>Olá, {{user.nome}}</span>
+        <img [src]="getAvatar(user.discordId, user.avatar)" alt="" (click)="toggleDropdown()">
+
+        <div class="profile-dropdown" *ngIf="profileDropdonw"
+            [ngClass]="[animationClass, profileDropdonw ? 'd-flex' : 'd-none']">
+            <div class="profile-menu">
+                <div class="menu" routerLink="/dashboard">
+                    <i class="fa-solid fa-briefcase"></i>
+                    <span>{{user.role}}</span>
+                </div>
+
+                <div class="menu logout" (click)="logout()">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    Sair
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
 </header>
-
-

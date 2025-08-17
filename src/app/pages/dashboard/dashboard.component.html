@@ -16,14 +16,14 @@
                 <h3>Status do servidor</h3>
             </div>
             <div class="card-body">
-                <!-- <span>
+                <span *ngIf="!serverOnline">
                     <div class="online"></div>
                     Online
-                </span> -->
-                <span>
+                  </span>
+                  <span *ngIf="serverOnline">
                     <div class="offline"></div>
                     Offline
-                </span>
+                  </span>
             </div>
             <div class="card-footer">
                 <p><i class="fa-solid fa-chevron-left"></i> Ver tudo</p>
@@ -55,6 +55,31 @@
 
 
     <div class="painel_dashboard">
+        <div class="dados">
+            <div class="chars">
+                <span>Grafico</span>
+                <div class="content_chars">
+                    <span>Útilmos banimentos em 24h</span>
+                    <div class="back">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </div>
+                    <div class="next">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="logs">
+                <div class="logs-header">
+                    <span>Últimas logs</span>
+                    <span class="ver_todos">Ver todos <i class="fa-solid fa-chevron-right"></i></span>
+
+                </div>
+
+                <div class="content_logs">
+
+                </div>
+            </div>
+        </div>
 
         <div class="jogadores_online">
             <span>Jogadores online</span>

@@ -1,24 +1,33 @@
 import { Component, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { filter, map } from 'rxjs/operators';
+import { AuthService } from '../../service/auth.service';
+import { CommonModule } from '@angular/common';
 
 
 @Component({
   selector: 'app-header',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
   @Input() isSidebarOpen = false;
   @Output() toggleSidebar = new EventEmitter<void>();
+  user: any;
+  animationClass: string = '';
+  profileDropdonw: boolean = false
+
+
 
   title = "Dashboard";
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute
+  constructor(private router: Router, private activatedRoute: ActivatedRoute, private authService: AuthService
   ) { }
 
   ngOnInit() {
+    this.user = this.authService.getUserFromToken();
+
     this.router.events.pipe(
       filter(event => event instanceof NavigationEnd),
       map(() => {
@@ -56,8 +65,45 @@ export class HeaderComponent implements OnInit {
     }
   }
 
-  logout(event: Event) {
+  logout() {
     localStorage.removeItem('token')
     this.router.navigate(['/login'])
   }
+
+
+  getAvatar(userId: string, avatar: string) {
+    return `https://cdn.discordapp.com/avatars/${userId}/${avatar}.png`
+  }
+
+  toggleDropdown() {
+    if (this.profileDropdonw) {
+      this.animationClass = 'fade-out';
+      setTimeout(() => {
+        this.profileDropdonw = !this.profileDropdonw;
+        this.animationClass = 'fade-in';
+      }, 200); // Tempo da animação em ms
+    } else {
+      this.animationClass = 'fade-out';
+      setTimeout(() => {
+        this.profileDropdonw = !this.profileDropdonw;
+        this.animationClass = 'fade-in';
+      }, 200);
+    }
+  }
+  closeDropdown() {
+    this.animationClass = 'fade-out';
+    setTimeout(() => {
+      this.profileDropdonw = false;
+      this.animationClass = 'fade-in';
+    }, 200);
+  }
+  @HostListener('document:click', ['$event'])
+  onClickOutside(event: Event) {
+    const dropdownElement = document.querySelector('.profile-dropdown');
+    if (this.profileDropdonw && dropdownElement && !dropdownElement.contains(event.target as Node)) {
+      this.closeDropdown();
+    }
+  }
+
+
 }  

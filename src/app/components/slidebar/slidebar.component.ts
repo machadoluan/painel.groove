@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { ToastrService } from '../../service/toastr.service';
+import { AuthService } from '../../service/auth.service';
 
 @Component({
   selector: 'app-slidebar',
@@ -15,7 +16,7 @@ export class SlidebarComponent implements OnInit {
 
   user: any;
 
-  constructor(private router: Router, ) { }
+  constructor(private router: Router, private authService: AuthService) { }
 
 
   isActive(route: string): boolean {
@@ -23,12 +24,17 @@ export class SlidebarComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // this.user = this.authService.getUserFromToken();
+    this.user = this.authService.getUserFromToken();
     console.log(this.user)
   }
 
   close() {
     this.closeSidebar.emit();
   }
+
+  getAvatar(userId: string, avatar: string) {
+    return `https://cdn.discordapp.com/avatars/${userId}/${avatar}.png`
+  }
+
 
 }

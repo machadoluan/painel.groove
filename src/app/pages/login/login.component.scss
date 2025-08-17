@@ -1,0 +1,47 @@
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+}
+
+button {
+  padding: 12px 24px;
+  font-size: 16px;
+  background-color: #EF903C;
+  color: rgba(34, 39, 40, 1);
+  border: none;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  
+  &:active {
+    transform: translateY(1px);
+  }
+  
+  i {
+    font-size: 18px;
+  }
+}
+
+.btn-style-global {
+    transition: all 100ms ease-in-out !important;
+    cursor: pointer;
+  
+    &:hover {
+      background-color: #FBB87D !important;
+    }
+  
+    &:active {
+      background-color: #AB6B32 !important;
+    }
+  
+    &:disabled {
+      background-color: rgba($color: #EF903C, $alpha: 0.5) !important;
+    }
+  }
