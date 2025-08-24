@@ -62,5 +62,9 @@ export class AuthService {
     window.location.reload()
   }
 
+  getUserFromId(id: number) {
+    this.http.get(`${this.UrlApi}/${id}`)
+  }
+
 
 }

@@ -85,7 +85,10 @@
                 <p class="descricao">{{ ticket.messages[0].message}}</p>
 
                 <div class="info">
-                    <p><strong>{{ ticket.userId }}</strong></p>
+                    <p>
+                        <i class="pi pi-user" ></i>
+                        <strong>{{ ticket.user?.nome }}</strong>
+                    </p>
                     <p class="tempo">{{ ticket.createdAt | date:'short' }}</p>
                     <!-- se quiser relativo, use um pipe/lib própria -->
                 </div>

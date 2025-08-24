@@ -1,9 +1,10 @@
-import { ChangeDetectionStrategy, Component, inject,  } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, } from '@angular/core';
 import { TableModule } from 'primeng/table';
 import { TabsModule } from 'primeng/tabs';
 import { TicketsService } from '../../service/tickets.service';
 import { Observable } from 'rxjs';
 import { AsyncPipe, DatePipe } from '@angular/common';
+import { AuthService } from '../../service/auth.service';
 
 // DTO para Ticket (Data Transfer Object)
 export interface TicketDto {
@@ -19,6 +20,7 @@ export interface TicketDto {
   messages: TicketMessageDto[];
   createdAt: string;
   updatedAt: string;
+  user: any
 }
 
 export interface TicketMessageDto {
@@ -48,9 +50,13 @@ export interface TicketMessageDto {
 export class TicketComponent {
 
   private readonly ticketService = inject(TicketsService);
+  private readonly authService = inject(AuthService);
 
   readonly tickets$: Observable<TicketDto[]> = this.ticketService.getTickets() as Observable<TicketDto[]>;
 
-
-
+  constructor() {
+    this.tickets$.subscribe(tickets => {
+      console.log('Tickets:', tickets);
+    });
+  }
 }
