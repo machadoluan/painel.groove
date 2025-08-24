@@ -3,7 +3,7 @@
         <span>{{title}}</span>
     </div>
 
-    <div class="user">
+    <div class="user" *ngIf="user">
         <span>Olá, {{user.nome}}</span>
         <img [src]="getAvatar(user.discordId, user.avatar)" alt="" (click)="toggleDropdown()">
 

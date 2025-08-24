@@ -1,0 +1,112 @@
+<div class="container-tickets">
+    <div class="cards">
+        <div class="card">
+            <div class="card-header">
+                <h3>Total de Tickets</h3>
+            </div>
+            <div class="card-body">
+                <p>40</p>
+            </div>
+            <div class="card-footer">
+                <p>Todos os tickets no sistema</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <h3>Tickets Abertos</h3>
+            </div>
+            <div class="card-body">
+                <p>1</p>
+            </div>
+            <div class="card-footer">
+                <p>Aguardando atendimento</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <h3>Em Progresso
+                </h3>
+            </div>
+            <div class="card-body">
+                <p>0</p>
+            </div>
+            <div class="card-footer">
+                <p>Sendo trabalhados
+
+                </p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <h3>Resolvidos
+                </h3>
+            </div>
+            <div class="card-body">
+                <p>1</p>
+            </div>
+            <div class="card-footer">
+                <p>Tickets finalizados
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="tickets-content">
+        <div class="title">
+            <h2>Tickets</h2>
+
+            <div class="filters">
+                <span>Todos os tickets</span>
+                <span>Meus tickets</span>
+                <span>Abertos</span>
+                <span>Cancelados</span>
+                <span>Concluidos</span>
+            </div>
+        </div>
+
+        <div class="tickets">
+            @if (tickets$ | async; as tickets) {
+            @for (ticket of tickets; track ticket.id) {
+            <div class="card"  [class.open]="ticket.status === 'Aberto'"
+            [class.novo]="ticket.status === 'new'"
+            [class.concluido]="ticket.status === 'Fechado'">
+                <h2>{{ ticket.subject }}</h2>
+
+                <div class="status">
+                    <span class="tag"
+                          [class.open]="ticket.status === 'Aberto'"
+                          [class.novo]="ticket.status === 'new'"
+                          [class.concluido]="ticket.status === 'Fechado'">
+                        {{ ticket.status === 'Aberto' ? 'Aberto' : ticket.status === 'pending' ? 'Pendente' : 'Concluído'
+                        }}
+                    </span>
+                </div>
+
+                <p class="descricao">{{ ticket.messages[0].message}}</p>
+
+                <div class="info">
+                    <p><strong>{{ ticket.userId }}</strong></p>
+                    <p class="tempo">{{ ticket.createdAt | date:'short' }}</p>
+                    <!-- se quiser relativo, use um pipe/lib própria -->
+                </div>
+
+                <div class="tags">
+
+                    <span class="chip">{{ ticket.motivo }}</span>
+
+                </div>
+            </div>
+            }
+            } @else {
+            <div class="card">
+                Carregando...
+            </div>
+            }
+
+
+
+
+        </div>
+    </div>
+
+</div>

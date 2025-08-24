@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
 
   title = 'Painel Groove';
 
-  excludedRoutes = ['/login'];
+  excludedRoutes = ['/login', '/'];
 
   constructor(
     public router: Router,
